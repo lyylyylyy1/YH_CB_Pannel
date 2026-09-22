@@ -157,22 +157,19 @@ svg text{fill:#68727e;font-size:11px}
 .module-button small{display:none}
 .module-icon{display:none}}
 @media(max-width:760px){
-.header-inner{min-height:70px;padding:9px 12px}
-.brand-group{gap:9px}
-.brand-logo{width:132px;height:42px}
-.brand-logo img{transform:scale(.75);transform-origin:63px 20px}
+.header-inner{min-height:64px;padding:8px 10px}
+.brand-group{gap:8px;align-items:center;flex-wrap:nowrap}
+.brand-logo{width:104px;height:38px;flex:0 0 auto}
+.brand-logo img{transform:scale(.59);transform-origin:63px 20px}
+.brand-group h1{font-size:15px;line-height:1.15;min-width:0}
 .eyebrow,.update-stamp{display:none}
 h1{font-size:19px}
 .workspace{padding:10px 10px 18px}
 .page-heading h2{font-size:24px}
 .figgrid{grid-template-columns:1fr}
-.sidebar{position:sticky;top:0;margin:0}
-.module-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
-.module-nav .module-button{padding:12px 8px;justify-content:flex-start}
-.module-icon{display:inline-flex}
-.module-button span:last-child{gap:1px;min-width:0}
-.module-button small{display:block;font-size:9px}
-.module-button strong{font-size:14px}
+/* 继承 1050 档的「标题隐藏 + 4 按钮一行 + sticky」方案，手机端不再覆盖成两列 */
+.sidebar{position:sticky;top:0;margin:0;z-index:20}
+.module-button strong{font-size:12.5px}
 .card-head{gap:8px}
 .card-body{padding:10px}
 .layout-row,.grid2{grid-template-columns:1fr}
@@ -192,10 +189,15 @@ h1{font-size:19px}
 .footer-brand{width:150px;background-size:900px 505px}
 .site-footer p{display:none}}
 @media(max-width:480px){
-.header-inner{padding:8px 10px}
-.brand-logo{width:110px;height:36px}
+.header-inner{padding:7px 9px}
+.brand-logo{width:88px;height:32px}
+.brand-logo img{transform:scale(.5);transform-origin:63px 20px}
+.brand-group h1{font-size:13px}
 h1{font-size:16px}
 .workspace{padding:8px 8px 16px}
+.module-button strong{font-size:11.5px}
+.module-nav{padding:6px}
+.module-button{padding:9px 4px}
 .page-heading h2{font-size:20px}
 .page-heading p{font-size:13px}
 h3,.card-head h3{font-size:15px}
