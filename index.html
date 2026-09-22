@@ -42,6 +42,7 @@ h1{margin:1px 0 0;color:var(--navy);font-size:clamp(21px,2vw,28px);line-height:1
 .module-button span:last-child{display:grid;gap:2px}
 .module-button small{font-size:10px;font-weight:700;letter-spacing:.14em;opacity:.62}
 .module-button strong{font-size:16px}
+.module-button .nav-hint{font-size:11px;font-weight:600;opacity:.6;font-style:normal}
 .module-icon{width:24px;color:currentColor;font-size:20px;text-align:center}
 .content{min-width:0}
 .page-heading{display:flex;align-items:baseline;gap:14px;margin:2px 0 12px}
@@ -254,8 +255,8 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
     </div>
     <nav class="module-nav" id="modnav">
       <button class="module-button is-active" data-target="part1"><span class="module-icon">◷</span><span><small>TRACKING</small><strong>每日市场跟踪</strong></span></button>
-      <button class="module-button" data-target="part3"><span class="module-icon">◇</span><span><small>TIMING</small><strong>择时策略</strong></span></button>
       <button class="module-button" data-target="part5"><span class="module-icon">❖</span><span><small>BASIC</small><strong>基础策略</strong></span></button>
+      <button class="module-button" data-target="part3"><span class="module-icon">◇</span><span><small>TIMING</small><strong>择时策略<em class="nav-hint">（内网打开）</em></strong></span></button>
     </nav>
   </aside>
   <section class="content">
@@ -285,21 +286,8 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
       <div class="card-body" id="db-box"></div>
     </section>
 
-    <!-- ═══ 板块3 · 择时主系统 ═══ -->
-    <div class="part-banner" id="part3"><span class="no">02</span><h2>择时策略</h2><span class="en">TIMING STRATEGY · ALL OUTPUTS</span></div>
-    <p class="part-intro">运行逻辑：10 个因子监控转债市场状态 → 两条信号线生成仓位（周频投票 = 低频稳健，日度打分 = 高频精细，十档离散 = 日度打分的仓位实现版）→ 按信号落地到个券。下面各卡按「因子 → 信号 → 落地」顺序排列。</p>
-    <div class="summary-grid" id="kpis"></div>
-    <section class="card"><div class="card-head"><div><h3>十因子体系</h3></div></div>
-      <div class="card-body" id="factors"></div></section>
-    <section class="card"><div class="card-head"><div><h3>周频投票定仓位</h3><p class="note">低频信号线：每周末 10 因子投票，看多满 5 票 → 下周满仓转债，否则买 10Y 国债</p></div></div>
-      <div class="card-body" id="vote"></div></section>
-    <section class="card"><div class="card-head"><div><h3>日度打分与回测</h3><p class="note">高频信号线：10 因子 0~10 打分 → 日度综合分 → 仓位 → 回测；「十档仓位实现」「择券落地」是日度信号的落地环节，收在本卡页签里</p></div></div>
-      <div class="card-body" id="daily"></div></section>
-    <section class="card"><div class="card-head"><div><h3>CCB 定价模型健康检查</h3><p class="note">CCB = 可转债理论定价模型：审计理论价对市价的覆盖与偏离、统计跌破情况——属模型健康度检查，与择时信号无关，单独列出</p></div></div>
-      <div class="card-body" id="ccb"></div></section>
-
-    <!-- ═══ 板块3 · 基础策略 ═══ -->
-    <div class="part-banner" id="part5"><span class="no">03</span><h2>基础策略</h2><span class="en">BASIC STRATEGIES · 17 CLASSICS</span></div>
+    <!-- ═══ 板块2 · 基础策略 ═══ -->
+    <div class="part-banner" id="part5"><span class="no">02</span><h2>基础策略</h2><span class="en">BASIC STRATEGIES · 17 CLASSICS</span></div>
     <p class="part-intro">17 个经典可转债基础策略（低溢价 / 低价 / 双低 / 偏股·平衡·偏债 / 动量 / 高YTM / 定价偏离 / 隐波差 / 评级等权）：分位门槛按当日全域券确定，可买过滤后等权持有，每 20 个交易日调仓、单边 10bp 成本。各卡按「周报 → 策略跟踪 → 回测汇总 → 最新截面快照」排列。</p>
     <section class="card" id="jc-weekly">
       <div class="card-head"><div><h3>策略周报</h3><p class="note">17 组合周 / 月 / 季 / 年收益与 2018 年以来年化（基准：集思录转债等权）</p></div><span class="filetag" id="jc-weekly-tag"></span></div>
@@ -317,6 +305,19 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
       <div class="card-head"><div><h3>最新截面快照 · 入选券</h3><p class="note">最近一个交易日各策略的入选券明细与过滤统计</p></div><span class="filetag" id="jc-snap-tag"></span></div>
       <div class="card-body" id="jc-snap-box"></div>
     </section>
+
+    <!-- ═══ 板块3 · 择时主系统 ═══ -->
+    <div class="part-banner" id="part3"><span class="no">03</span><h2>择时策略</h2><span class="en">TIMING STRATEGY · ALL OUTPUTS</span></div>
+    <p class="part-intro">运行逻辑：10 个因子监控转债市场状态 → 两条信号线生成仓位（周频投票 = 低频稳健，日度打分 = 高频精细，十档离散 = 日度打分的仓位实现版）→ 按信号落地到个券。下面各卡按「因子 → 信号 → 落地」顺序排列。</p>
+    <div class="summary-grid" id="kpis"></div>
+    <section class="card"><div class="card-head"><div><h3>十因子体系</h3></div></div>
+      <div class="card-body" id="factors"></div></section>
+    <section class="card"><div class="card-head"><div><h3>周频投票定仓位</h3><p class="note">低频信号线：每周末 10 因子投票，看多满 5 票 → 下周满仓转债，否则买 10Y 国债</p></div></div>
+      <div class="card-body" id="vote"></div></section>
+    <section class="card"><div class="card-head"><div><h3>日度打分与回测</h3><p class="note">高频信号线：10 因子 0~10 打分 → 日度综合分 → 仓位 → 回测；「十档仓位实现」「择券落地」是日度信号的落地环节，收在本卡页签里</p></div></div>
+      <div class="card-body" id="daily"></div></section>
+    <section class="card"><div class="card-head"><div><h3>CCB 定价模型健康检查</h3><p class="note">CCB = 可转债理论定价模型：审计理论价对市价的覆盖与偏离、统计跌破情况——属模型健康度检查，与择时信号无关，单独列出</p></div></div>
+      <div class="card-body" id="ccb"></div></section>
 
     <!-- 研报复现板块已按 SHOW_REPLICAS=False 整体关闭 -->
 
@@ -1116,7 +1117,7 @@ document.getElementById('modnav').addEventListener('click',e=>{
 });
 // 滚动联动：当前可见的板块高亮左侧导航，并同步标题
 (function(){
-  const parts=['part1','part3','part5','part4'].filter(id=>document.getElementById(id));
+  const parts=['part1','part5','part3','part4'].filter(id=>document.getElementById(id));
   const btns=new Map([...document.querySelectorAll('#modnav .module-button')].map(b=>[b.dataset.target,b]));
   let ticking=false;
   const update=()=>{ticking=false;
