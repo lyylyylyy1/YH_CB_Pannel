@@ -276,7 +276,7 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
   </aside>
   <section class="content">
     <div id="weeksig-box"></div>
-    <div class="page-heading"><h2 id="module-title">每日市场跟踪</h2><p id="section-title">多维市场数据 · 行情图表 · 修正溢价率明细 · 转债日报 · 转债估值指标体系</p></div>
+    <div class="page-heading"><h2 id="module-title">每日市场跟踪</h2><p id="section-title">多维市场数据（含估值指标） · 行情图表 · 修正溢价率明细 · 转债日报</p></div>
 
     <!-- ═══ 板块1 · 每日市场跟踪 ═══ -->
     <div class="part-banner" id="part1"><span class="no">01</span><h2>每日市场跟踪</h2><span class="en">DAILY MARKET TRACKING</span></div>
@@ -295,10 +295,6 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
     <section class="card" id="daily-yh">
       <div class="card-head"><div><h3>转债日报</h3></div><span class="freq-tag">日度<small>每个交易日</small></span><span class="filetag" id="yh-tag"></span></div>
       <div class="card-body" id="yh-box"></div>
-    </section>
-    <section class="card" id="daily-db">
-      <div class="card-head"><div><h3>转债估值指标体系</h3><p class="note">更全面地刻画转债市场估值</p></div><span class="freq-tag">日度<small>每个交易日</small></span><span class="filetag" id="db-tag"></span></div>
-      <div class="card-body" id="db-box"></div>
     </section>
 
     <!-- ═══ 板块2 · 基础策略 ═══ -->
@@ -342,7 +338,7 @@ input[type=number],input[type=text],input[type=search]{max-width:100%}
 </main>
 <div id="lightbox"><img alt=""><button class="lb-dl" title="下载原图">⬇ 下载原图</button></div>
 <div id="tip"></div>
-<script src="data.js?v=20261016202610182015"></script>
+<script src="data.js?v=20261016202610182028"></script>
 <script>
 /* 数据块已拆到同目录 data.js（var D 挂 window），本 script 直接用 D */
 const M={red:'#d12920',navy:'#315b7d',orange:'#e97132',gold:'#c9821b',blue:'#5592dc',green:'#2f7d6d'};
@@ -907,11 +903,6 @@ function blockTabs(boxEl,sheets,emptyMsg){
     el.innerHTML='<div class="miss">未找到转债日报</div>';
   }
 })();
-(function(){
-  const v=D.val_db||{};
-  document.getElementById('db-tag').textContent=v.name||'未找到';
-  blockTabs(document.getElementById('db-box'),v.sheets,'无表格');
-})();
 
 /* ---------- 板块3 · 择时 ---------- */
 (function(){
@@ -1279,7 +1270,7 @@ function renderSpBody(){
 })();
 
 /* ---------- 导航 / 窗口 / 拖拽 ---------- */
-const TITLES={part1:['每日市场跟踪','多维市场数据 · 行情图表 · 修正溢价率明细 · 转债日报 · 转债估值指标体系'],
+const TITLES={part1:['每日市场跟踪','多维市场数据（含估值指标） · 行情图表 · 修正溢价率明细 · 转债日报'],
 part3:['择时策略','十因子体系 · 周频投票 / 日度打分（含十档·择券落地）/ CCB 模型检查'],
 part5:['基础策略','17 个经典基础策略 · 策略周报 / 转债策略跟踪表 / 全量回测 / 截面快照'],
 part4:['研报复现','国泰二维 · 银河RSJ · 广发三视角 · 华福高估值 · 中金事件驱动']};
